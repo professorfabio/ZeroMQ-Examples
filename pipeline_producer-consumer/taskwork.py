@@ -9,7 +9,7 @@ p2 = "tcp://"+ SRC2 +":"+ PORT2   # address second task source
 r.connect(p1)                     # connect to task source 1
 r.connect(p2)                     # connect to task source 2
 #-
-print me + " started" #-
+print (me + " started") #-
 
 while True:
   work = pickle.loads(r.recv())   # receive work from a source
