@@ -11,12 +11,7 @@ def producer():
 		workload = random.randint(1, 100)   # compute workload
 		socket.send(pickle.dumps(workload)) # send workload to worker
 
-def worker():
-	context = zmq.Context()
-	socket  = context.socket(zmq.PULL)     # create a pull socket
-	socket.connect("tcp://localhost:12345")                     # connect to task source 1
-
-	while True:
-		work = pickle.loads(socket.recv())   # receive work from a source
-		print("Received " + str(work))
-		time.sleep(work*0.01)        # pretend to work
+if sys.argv[1] == '1':
+	producer(PORT1)
+elif sys.argv[1] == '2':
+	producer(PORT2)
