@@ -13,5 +13,5 @@ print me + " started" #-
 
 while True:
   work = pickle.loads(r.recv())   # receive work from a source
-  print me + " received " + str(work[1]) + " from " + work[0] #-
+  print (me + " received " + str(work[1]) + " from " + work[0]) #-
   time.sleep(work[1]*0.01)        # pretend to work
